@@ -1,26 +1,3 @@
-// let matrix = [
-//     [0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 2, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0],
-//     [1, 0, 0, 1, 0, 1, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2, 0, 0, 0],
-//     [0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1],
-//     [0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0],
-//     [1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1],
-//     [0, 1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0],
-//     [1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 2, 1],
-//     [0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 2, 0, 1, 0, 0, 0, 0, 0, 0],
-//     [0, 0, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0],
-//     [1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0],
-//     [0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 2, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0],
-//     [1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2, 0, 1, 0],
-//     [1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 2, 0, 0, 0, 2, 0, 1, 0, 0, 0, 0, 0, 0],
-//     [0, 1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 2, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0],
-//     [1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0],
-//     [0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 2, 0, 0, 0, 1, 0, 0],
-//     [1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0],
-//     [1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0],
-//     [0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 2, 0, 0, 0, 1, 0, 0],
-//     [0, 2, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 2, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0],
-// ]
-
 // генератор матрицы 60х40
 let matrix_width = 60
 let matrix_height = 40
@@ -49,9 +26,9 @@ function setup() {
     createCanvas(matrix[0].length * side, matrix.length * side)
     background('#acacac')
 
-//   let gr = new Grass(1,2)
-//   let emptyCells = gr.chooseCell(0)
-//   console.log(emptyCells)
+    //   let gr = new Grass(1,2)
+    //   let emptyCells = gr.chooseCell(0)
+    //   console.log(emptyCells)
 
     for (let y = 0; y < matrix.length; ++y) {
         for (let x = 0; x < matrix[y].length; ++x) {
@@ -145,8 +122,8 @@ class Grass {
     //  размножиться (раз в 5 циклов)
     mul() {
         this.multiply++
-        let newCell = random(this.chooseCell(0))
-        // console.log(newCell, this.multiply)
+            let newCell = random(this.chooseCell(0))
+                // console.log(newCell, this.multiply)
         if (this.multiply >= 5 && newCell) {
             let newGrass = new Grass(newCell[0], newCell[1])
             grassArr.push(newGrass)
@@ -162,7 +139,7 @@ class GrassEater {
     constructor(x, y) {
         this.x = x
         this.y = y
-        this.energy = 5  // жизни
+        this.energy = 5 // жизни
         this.ate_well = 0 // регулярность приёма пищи
         this.directions = [] // соседи
     }
@@ -211,19 +188,19 @@ class GrassEater {
     // передвинуться в поисках еды
     move() {
         this.energy--
-        // если еды нет уже 5 циклов, то смерть
-        if (this.energy <= 0) {
-            this.die()
-        } else {
-            let newCell = random(this.chooseCell(0))
-            if (newCell) {
-                matrix[this.y][this.x] = 0
-                matrix[newCell[1]][newCell[0]] = 2
-                this.x = newCell[0]
-                this.y = newCell[1]
-                this.getNewCoordinates()
+            // если еды нет уже 5 циклов, то смерть
+            if (this.energy <= 0) {
+                this.die()
+            } else {
+                let newCell = random(this.chooseCell(0))
+                if (newCell) {
+                    matrix[this.y][this.x] = 0
+                    matrix[newCell[1]][newCell[0]] = 2
+                    this.x = newCell[0]
+                    this.y = newCell[1]
+                    this.getNewCoordinates()
+                }
             }
-        }
     }
 
     // покушат (если рядом есть трава, то переместиться на неё)
@@ -231,18 +208,18 @@ class GrassEater {
         let newCell = random(this.chooseCell(1))
         if (newCell) {
             this.ate_well++
-            this.energy = 5
+                this.energy = 5
             matrix[this.y][this.x] = 0
             matrix[newCell[1]][newCell[0]] = 2
             this.x = newCell[0]
             this.y = newCell[1]
-            // удаляем съеденную траву из массива
-            // for (let i in grassArr) {
-            //     if (grassArr[i].x === newCell[0] && grassArr[i].y === newCell[1]) {
-            //         grassArr.splice(i, 1)
-            //          break
-            //     }
-            // }
+                // удаляем съеденную траву из массива
+                // for (let i in grassArr) {
+                //     if (grassArr[i].x === newCell[0] && grassArr[i].y === newCell[1]) {
+                //         grassArr.splice(i, 1)
+                //          break
+                //     }
+                // }
             grassArr.splice(grassArr.findIndex(item => item.x === newCell[0] && item.y === newCell[1]), 1)
             this.getNewCoordinates()
         } else {
@@ -257,6 +234,3 @@ class GrassEater {
         grassEatersArr.splice(grassEatersArr.findIndex(item => item.x === this.x && item.y === this.y), 1)
     }
 }
-
-
-
