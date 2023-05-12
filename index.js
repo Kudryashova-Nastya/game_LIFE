@@ -84,14 +84,10 @@ function draw() {
     }
 }
 
-// Трава
-class Grass {
+class LivingCreature {
     constructor(x, y) {
-        this.x = x
-        this.y = y
-        this.multiply = 0
-
-        // координаты соседних ячеек
+        this.x = x;
+        this.y = y;
         this.directions = [
             [this.x - 1, this.y - 1],
             [this.x, this.y - 1],
@@ -101,22 +97,42 @@ class Grass {
             [this.x - 1, this.y + 1],
             [this.x, this.y + 1],
             [this.x + 1, this.y + 1]
-        ]
+        ];
+
     }
 
     // найти все соседние ячейки с индексом character
-    chooseCell(character) {
-        let found = []
-        for (let i in this.directions) {
-            let x = this.directions[i][0]
-            let y = this.directions[i][1]
+    chooseCell(ch) {
+        var found = [];
+        for (var i in this.directions) {
+            var x = this.directions[i][0];
+            var y = this.directions[i][1];
             if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
-                if (matrix[y][x] === character) {
-                    found.push(this.directions[i])
+                if (matrix[y][x] == ch) {
+                    found.push(this.directions[i]);
                 }
             }
         }
-        return found
+        return found;
+    }
+}
+
+
+// Трава
+class Grass extends LivingCreature {
+    constructor(x, y) {
+        super(x, y)
+        this.multiply = 0
+        this.directions = [
+            [this.x - 1, this.y - 1],
+            [this.x, this.y - 1],
+            [this.x + 1, this.y - 1],
+            [this.x - 1, this.y],
+            [this.x + 1, this.y],
+            [this.x - 1, this.y + 1],
+            [this.x, this.y + 1],
+            [this.x + 1, this.y + 1]
+        ];
     }
 
     //  размножиться (раз в 5 циклов)
@@ -135,13 +151,12 @@ class Grass {
 
 
 // Травоядное
-class GrassEater {
+class GrassEater extends LivingCreature {
     constructor(x, y) {
-        this.x = x
-        this.y = y
+        super(x, y)
         this.energy = 5 // жизни
         this.ate_well = 0 // регулярность приёма пищи
-        this.directions = [] // соседи
+        this.directions = []
     }
 
     // узнать новые координаты соседних ячеек после перемещения
@@ -161,17 +176,7 @@ class GrassEater {
     // найти все соседние ячейки с индексом character
     chooseCell(character) {
         this.getNewCoordinates()
-        let found = []
-        for (let i in this.directions) {
-            let x = this.directions[i][0]
-            let y = this.directions[i][1]
-            if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
-                if (matrix[y][x] === character) {
-                    found.push(this.directions[i])
-                }
-            }
-        }
-        return found
+        return super.chooseCell(character)
     }
 
     //  размножиться (после регулярного употребления травы в течение 5 циклов)
