@@ -45,6 +45,22 @@ function setup() {
     }
 }
 
+function mouseClicked() {
+    if (mouseX < 960 && mouseY < 640 && mouseX > 0 && mouseY > 0) {
+        console.log(mouseX, mouseY)
+        let indexY = parseInt(mouseY / side)
+        let indexX = parseInt(mouseX / side)
+        console.log(indexY, indexX)
+        if (matrix[indexY][indexX] === 1) {
+            grassArr.splice(grassArr.findIndex(item => item.x === indexX && item.y === indexY), 1)
+        }
+        matrix[indexY][indexX] = 2
+        let ge = new GrassEater(indexX, indexY)
+        grassEatersArr.push(ge)
+    }
+}
+
+
 // непрерывный вызов рисования
 function draw() {
 
@@ -52,7 +68,11 @@ function draw() {
         for (let x = 0; x < matrix[y].length; x++) {
 
             if (matrix[y][x] === 1) {
-                fill("green")
+                if (season == "summer") {
+                    fill("green")
+                } else if (season == "winter") {
+                    fill("white")
+                }
             } else if (matrix[y][x] === 0) {
                 fill("#acacac")
             } else if (matrix[y][x] === 2) {
@@ -69,8 +89,12 @@ function draw() {
     for (let i in grassArr) {
         // let emptyCells = grassArr[i].chooseCell(0)
         // console.log(emptyCells)
+        if (season == "winter") {
+            grassArr[i].mulInWinter()
+        } else {
+            grassArr[i].mul()
+        }
 
-        grassArr[i].mul()
     }
 
     for (let i in grassEatersArr) {
@@ -141,6 +165,18 @@ class Grass extends LivingCreature {
             let newCell = random(this.chooseCell(0))
                 // console.log(newCell, this.multiply)
         if (this.multiply >= 5 && newCell) {
+            let newGrass = new Grass(newCell[0], newCell[1])
+            grassArr.push(newGrass)
+            matrix[newCell[1]][newCell[0]] = 1
+            this.multiply = 0
+        }
+    }
+
+    mulInWinter() {
+        this.multiply++
+            let newCell = random(this.chooseCell(0))
+                // console.log(newCell, this.multiply)
+        if (this.multiply >= 10 && newCell) {
             let newGrass = new Grass(newCell[0], newCell[1])
             grassArr.push(newGrass)
             matrix[newCell[1]][newCell[0]] = 1
