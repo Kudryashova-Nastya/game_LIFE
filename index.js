@@ -54,9 +54,16 @@ function mouseClicked() {
         if (matrix[indexY][indexX] === 1) {
             grassArr.splice(grassArr.findIndex(item => item.x === indexX && item.y === indexY), 1)
         }
-        matrix[indexY][indexX] = 2
-        let ge = new GrassEater(indexX, indexY)
-        grassEatersArr.push(ge)
+        if (create == "grassEater") {
+            matrix[indexY][indexX] = 2
+            let ge = new GrassEater(indexX, indexY)
+            grassEatersArr.push(ge)
+        } else if (create = "grass") {
+            matrix[indexY][indexX] = 1
+            let g = new Grass(indexX, indexY)
+            grassArr.push(g)
+        }
+
     }
 }
 
@@ -275,3 +282,10 @@ class GrassEater extends LivingCreature {
         grassEatersArr.splice(grassEatersArr.findIndex(item => item.x === this.x && item.y === this.y), 1)
     }
 }
+
+setInterval(() => {
+    fetch('http://localhost:3000/', {
+        method: "POST",
+        body: `Кол-во травы: ${grassArr.length}, травоядных: ${grassEatersArr.length}`
+    })
+}, 10000)
