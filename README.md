@@ -10,5 +10,6 @@
   * умирает после голодания в течение 5 циклов.
   
 ### Пример работы:
-![пример работы](https://user-images.githubusercontent.com/56070980/217988401-b33a20cb-f45f-417a-b395-67ecc7c2e1b2.gif)
+![пример работы](https://github.com/Kudryashova-Nastya/game_LIFE/assets/56070980/32fc9d0c-6ca2-4b80-b772-70f30ee12c7c)
+
 
